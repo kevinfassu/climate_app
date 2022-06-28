@@ -5,54 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script type="text/JavaScript" src="https://MomentJS.com/downloads/moment.js"></script>
+    
     <!--added styling-->
 </head>
-<body>
-    <header class="text-center">
-        <h1 class="">
+<body class="flex-column min-100-vh">
+    <header class="hero">
+        <h1 class="title">
             Forcast
         </h1>
     </header>
     <br>
-    <main>
-        <div class="">
-            <div>
-                <h3>
+    <main class="flex-row justify-space-between">
+        <div class="flex-row justify-space-between col-12">
+            <div class="col-12 col-md-4">
+                <div class="card">
+
+                
+                    <h3 class="card-header text-uppercase">
                     City:
-                </h3>
-                <form action="">
-                    <input type="text" placeholder="City...">
-                    <br>
-                    <button>SEARCH</button>
-                </form>
-                <div></div>
+                    </h3>
+                    <form id="city-search" class="card-body">
+                        <input id="searchedCity" name="city" type="text" placeholder="City...">
+                        <br>
+                        <button type="submit" class="btn">SEARCH</button>
+                    </form>
+                </div>
+                <div id="searchHistoryBtns"></div>
             </div>
-            <div>
-                <div>
-                    <div>
-                        <h2></h2>
-                        <img src="" alt="">
-                        <h6></h6>
-                        <h6></h6>
-                        <h6></h6>
-                        <h6>
-                        <span></span>
-                        </h6>
-                    </div>
-                </div>
-                <div>
-                    <h4>Next Five Days</h4>
-                </div>
-                <div>
-                    <div>
+            <div class="col-12 col-md-4">
+                <div class="card hidden" id="current-weather-card">
+                    <h2 class="card-header" id="weather-status"></h2>
+                    <div class="card-body" id="current-weather">
 
                     </div>
                 </div>
             </div>
               
+        </div>
+
+        <div class="flex-row justify-space-between col-12">
+            <div class="col-12 col-md-4" id="search">
+                <div class="card" id="history" style="display: none;">
+                    <h3 class="card-header text-uppercase">
+                        History
+                        <i id="trash" class="fas fa trash" title="Clear History"></i>
+                    </h3>
+                    <div class="card-body" id="history-buttons">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8">
+                <div class="card hidden" id="five-day-card">
+                    <h2 class="card-header" id="five-day-head">
+                        5-Day Forcast
+                    </h2>
+                    <div class="card-body flex-row justify-space-around" id="five-body-body">
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="./script.js"></script>
     </main>
